@@ -57,6 +57,7 @@ public class Graph {
                             currentVertex.addEdge(new Edge(currentVertex, mineVertex));
                             mineVertex.addEdge(new Edge(mineVertex, currentVertex));
                             listOfEdge.add(mineEdge);
+
                             deque.add(mineVertex);
                             }
                     }
