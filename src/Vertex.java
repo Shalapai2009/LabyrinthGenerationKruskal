@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 
 public class Vertex {
-    private ArrayList<Edge> listEdge = new ArrayList<>();
+
     private int x;
     private int y;
+    private ArrayList<Edge> listEdge = new ArrayList<>();
     private boolean isolated = true;
     public Vertex(int x,int y){
         this.x = x;

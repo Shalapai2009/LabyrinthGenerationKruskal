@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2be5b2c0-9eb0-477b-8363-1505720e9f88" name="Changes" comment="asa">
+    <list default="true" id="2be5b2c0-9eb0-477b-8363-1505720e9f88" name="Changes" comment="iamfuckinggenius">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Edge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kruskal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kruskal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vertex.java" afterDir="false" />
     </list>
@@ -72,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713209411531</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="iamfuckinggenius">
+      <created>1713729155971</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713729155971</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -88,14 +96,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="asa" />
-    <option name="LAST_COMMIT_MESSAGE" value="asa" />
+    <MESSAGE value="iamfuckinggenius" />
+    <option name="LAST_COMMIT_MESSAGE" value="iamfuckinggenius" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>18</line>
+          <line>19</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

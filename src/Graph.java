@@ -4,17 +4,17 @@ import java.util.Deque;
 import java.util.List;
 
 public class Graph {
-    private Vertex[][] array;
-    private List<Edge> listOfEdges;
+    private Vertex[][] vertexMatrix;
+    private List<Edge> listOfEdges = new ArrayList<>();
     public Graph(int x, int y){
-        Vertex[][] array = new Vertex[x][y];
-        this.array = array;
+        vertexMatrix = new Vertex[x][y];
         createField();
+        giveVertexEdges();
        listOfEdges = getListOfEdges();
     }
     public Vertex getVertex(int x,int y){
         try {
-            return array[x][y];
+            return vertexMatrix[x][y];
         } catch (Exception e) {
             return null;
         }
@@ -22,9 +22,9 @@ public class Graph {
     }
     public int[] getVertexCoordinates(Vertex vertex){
         int[] vertexCoordinates = new int[2];
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                if (array[i][j] == vertex){
+        for (int i = 0; i < vertexMatrix.length; i++) {
+            for (int j = 0; j < vertexMatrix[i].length; j++) {
+                if (vertexMatrix[i][j] == vertex){
                     vertexCoordinates[0] =i; vertexCoordinates[1] =j;
                     return vertexCoordinates;
                 }
@@ -33,16 +33,15 @@ public class Graph {
         return null;
     }
     public void createField(){
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                array[i][j] = new Vertex(i,j);
+        for (int i = 0; i < vertexMatrix.length; i++) {
+            for (int j = 0; j < vertexMatrix[i].length; j++) {
+                vertexMatrix[i][j] = new Vertex(i,j);
             }
         }
     }
     public void giveVertexEdges(){
-        List<Edge> listEdge = new ArrayList<>();
         Deque<Vertex> deque = new ArrayDeque<>();
-        deque.add(array[0][0]);
+        deque.add(vertexMatrix[0][0]);
         while (deque.size()>0){
         Vertex currentVertex = deque.pop();
             int[] currentVertexCoordinates = getVertexCoordinates(currentVertex);
@@ -54,14 +53,14 @@ public class Graph {
                         Vertex mineVertex = getVertex(currentVertexX+i,currentVertexY+j);
                         if (mineVertex != null && (!currentVertex.isIWasHere(mineVertex))){
 
-                            int RandomRib =   (int) (Math.random() * (100));
+                            int RandomRib = (int) (Math.random() * (100));
 
                             Edge mineEdge = new Edge(currentVertex, mineVertex, RandomRib);
                             currentVertex.addEdge(new Edge(currentVertex, mineVertex, RandomRib));
 
                             mineVertex.addEdge(new Edge(mineVertex, currentVertex, RandomRib));
 
-                            listEdge.add(mineEdge);
+                            listOfEdges.add(mineEdge);
 
                             deque.add(mineVertex);
                             }
@@ -75,11 +74,11 @@ public class Graph {
         return listOfEdges;
     }
 
-    public void setArray(Vertex[][] array) {
-        this.array = array;
+    public void setVertexMatrix(Vertex[][] vertexMatrix) {
+        this.vertexMatrix = vertexMatrix;
     }
 
-    public Vertex[][] getArray() {
-        return array;
+    public Vertex[][] getVertexMatrix() {
+        return vertexMatrix;
     }
 }
