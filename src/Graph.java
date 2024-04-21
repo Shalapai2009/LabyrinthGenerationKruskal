@@ -1,15 +1,16 @@
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
 public class Graph {
     private Vertex[][] array;
-
+    private List<Edge> listOfEdges;
     public Graph(int x, int y){
         Vertex[][] array = new Vertex[x][y];
         this.array = array;
         createField();
-        giveVertexEdges();
+       listOfEdges = getListOfEdges();
     }
     public Vertex getVertex(int x,int y){
         try {
@@ -39,7 +40,7 @@ public class Graph {
         }
     }
     public void giveVertexEdges(){
-        List<Edge> listOfEdge = null;
+        List<Edge> listEdge = new ArrayList<>();
         Deque<Vertex> deque = new ArrayDeque<>();
         deque.add(array[0][0]);
         while (deque.size()>0){
@@ -51,12 +52,16 @@ public class Graph {
                 for (int j = -1; j < 2; j++) {
                     if ((i!=0 & j==0) | (i==0 & j!=0)){
                         Vertex mineVertex = getVertex(currentVertexX+i,currentVertexY+j);
-                        if (mineVertex != null){
-                            Edge mineEdge = new Edge(currentVertex, mineVertex);
+                        if (mineVertex != null && (!currentVertex.isIWasHere(mineVertex))){
 
-                            currentVertex.addEdge(new Edge(currentVertex, mineVertex));
-                            mineVertex.addEdge(new Edge(mineVertex, currentVertex));
-                            listOfEdge.add(mineEdge);
+                            int RandomRib =   (int) (Math.random() * (100));
+
+                            Edge mineEdge = new Edge(currentVertex, mineVertex, RandomRib);
+                            currentVertex.addEdge(new Edge(currentVertex, mineVertex, RandomRib));
+
+                            mineVertex.addEdge(new Edge(mineVertex, currentVertex, RandomRib));
+
+                            listEdge.add(mineEdge);
 
                             deque.add(mineVertex);
                             }
@@ -65,6 +70,11 @@ public class Graph {
             }
         }
     }
+
+    public List<Edge> getListOfEdges() {
+        return listOfEdges;
+    }
+
     public void setArray(Vertex[][] array) {
         this.array = array;
     }
