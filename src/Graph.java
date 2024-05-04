@@ -1,16 +1,16 @@
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
+import java.util.logging.Logger;
 
 public class Graph {
     private Vertex[][] vertexMatrix;
     private List<Edge> listOfEdges = new ArrayList<>();
+    private List<Vertex> listOfVertex = new ArrayList<>();
+    private List<VertexTree> listOfVertexTree = new ArrayList<>();
     public Graph(int x, int y){
         vertexMatrix = new Vertex[x][y];
         createField();
         giveVertexEdges();
-       listOfEdges = getListOfEdges();
+
     }
     public Vertex getVertex(int x,int y){
         try {
@@ -36,6 +36,7 @@ public class Graph {
         for (int i = 0; i < vertexMatrix.length; i++) {
             for (int j = 0; j < vertexMatrix[i].length; j++) {
                 vertexMatrix[i][j] = new Vertex(i,j);
+                listOfVertex.add(vertexMatrix[i][j]);
             }
         }
     }
@@ -52,16 +53,12 @@ public class Graph {
                     if ((i!=0 & j==0) | (i==0 & j!=0)){
                         Vertex mineVertex = getVertex(currentVertexX+i,currentVertexY+j);
                         if (mineVertex != null && (!currentVertex.isIWasHere(mineVertex))){
-
-                            int RandomRib = (int) (Math.random() * (100));
+                            int RandomRib = (int) (Math.random() * (10));
 
                             Edge mineEdge = new Edge(currentVertex, mineVertex, RandomRib);
                             currentVertex.addEdge(new Edge(currentVertex, mineVertex, RandomRib));
-
                             mineVertex.addEdge(new Edge(mineVertex, currentVertex, RandomRib));
-
                             listOfEdges.add(mineEdge);
-
                             deque.add(mineVertex);
                             }
                     }
@@ -69,9 +66,39 @@ public class Graph {
             }
         }
     }
+    public void doKruskal(){
+        Collections.sort(listOfEdges);
+        List<List<VertexTree>> ListOfEdgesOfTrees = new ArrayList<>();
+        for (Vertex vertex: listOfVertex) {
+            listOfVertexTree.add( new VertexTree(vertex));
+        }
+        /*for (Edge edge: listOfEdges) {
+            ListOfEdgesOfTrees.add()
+        }
+        for (Edge edge: listOfEdges) {
+            if (edge.getVertex1().getFinal != edge.getVertex2().getFinal){
+                listOfVertexTree. getVertex1.addChildList(listOfVertexTree.getVertex2)
+            }
+        }*/
+        listOfVertexTree.get(0).addChildList(listOfVertexTree.get(1));
+        listOfVertexTree.get(0).addChildList(listOfVertexTree.get(2));
+        listOfVertexTree.get(0).addChildList(listOfVertexTree.get(4));
+        listOfVertexTree.get(1).addChildList(listOfVertexTree.get(3));
+        listOfVertexTree.get(0).addChildList(listOfVertexTree.get(5));
+        VertexTree vertexTree1 = listOfVertexTree.get(3).getFinal();
+
+    }
 
     public List<Edge> getListOfEdges() {
         return listOfEdges;
+    }
+    public void generateListOfVertex(){
+        for (Vertex[] matrix : vertexMatrix) {
+            Collections.addAll(listOfVertex, matrix);
+        }
+    }
+    public List<Vertex> getListOfVertex() {
+        return listOfVertex;
     }
 
     public void setVertexMatrix(Vertex[][] vertexMatrix) {

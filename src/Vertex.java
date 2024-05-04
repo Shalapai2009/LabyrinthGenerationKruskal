@@ -36,7 +36,9 @@ public class Vertex {
         }
         return false;
     }
-
+    public void printXY(){
+        System.out.println(x+" "+y);
+    }
     public Boolean getBooleanDefiniteEdge(Edge edge){
         return listEdge.contains(edge);
     }
