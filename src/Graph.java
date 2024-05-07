@@ -1,11 +1,10 @@
 import java.util.*;
-import java.util.logging.Logger;
 
 public class Graph {
     private Vertex[][] vertexMatrix;
     private List<Edge> listOfEdges = new ArrayList<>();
     private List<Vertex> listOfVertex = new ArrayList<>();
-    private List<VertexTree> listOfVertexTree = new ArrayList<>();
+   // private List<VertexTree> listOfVertexTree = new ArrayList<>();
     public Graph(int x, int y){
         vertexMatrix = new Vertex[x][y];
         createField();
@@ -56,8 +55,10 @@ public class Graph {
                             int RandomRib = (int) (Math.random() * (10));
 
                             Edge mineEdge = new Edge(currentVertex, mineVertex, RandomRib);
-                            currentVertex.addEdge(new Edge(currentVertex, mineVertex, RandomRib));
-                            mineVertex.addEdge(new Edge(mineVertex, currentVertex, RandomRib));
+                            currentVertex.addEdge(mineEdge);
+                            //mineEdge.setBROTHA();
+                            mineVertex.addEdge(mineEdge.getBROTHA());
+                            //mineVertex.addEdge(new Edge(mineVertex, currentVertex, RandomRib));
                             listOfEdges.add(mineEdge);
                             deque.add(mineVertex);
                             }
@@ -68,25 +69,15 @@ public class Graph {
     }
     public void doKruskal(){
         Collections.sort(listOfEdges);
-        List<List<VertexTree>> ListOfEdgesOfTrees = new ArrayList<>();
-        for (Vertex vertex: listOfVertex) {
-            listOfVertexTree.add( new VertexTree(vertex));
+        SpanningTree spanningTree = new SpanningTree(this);
+        spanningTree.createDaFuckingTrulyGoddessSpanningTree();
+        for (Edge list: listOfEdges) {
+           if  (spanningTree.getListOfTrue().contains(list)){
+               list.makeRed();
+               list.getBROTHA().makeRed();
+           }
         }
-        /*for (Edge edge: listOfEdges) {
-            ListOfEdgesOfTrees.add()
-        }
-        for (Edge edge: listOfEdges) {
-            if (edge.getVertex1().getFinal != edge.getVertex2().getFinal){
-                listOfVertexTree. getVertex1.addChildList(listOfVertexTree.getVertex2)
-            }
-        }*/
-        listOfVertexTree.get(0).addChildList(listOfVertexTree.get(1));
-        listOfVertexTree.get(0).addChildList(listOfVertexTree.get(2));
-        listOfVertexTree.get(0).addChildList(listOfVertexTree.get(4));
-        listOfVertexTree.get(1).addChildList(listOfVertexTree.get(3));
-        listOfVertexTree.get(0).addChildList(listOfVertexTree.get(5));
-        VertexTree vertexTree1 = listOfVertexTree.get(3).getFinal();
-
+        System.out.println("whomp whomp");
     }
 
     public List<Edge> getListOfEdges() {

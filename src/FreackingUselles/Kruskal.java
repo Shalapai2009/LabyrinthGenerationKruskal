@@ -1,3 +1,5 @@
+package FreackingUselles;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -10,7 +12,7 @@ public class Kruskal {
     private List<Vertex> listOfVertexKruskal = new ArrayList<>();
     private List<Vertex> listVertex1 = new ArrayList<>();
     private List<Vertex> listVertex2 = new ArrayList<>();
-    public Kruskal (Graph graph){
+    public FreackingUselles.Kruskal (Graph graph){
         this.graph = graph;
         listOfEdges = graph.getListOfEdges();
 

@@ -4,12 +4,15 @@ public class Edge implements Comparable<Edge>{
     private Vertex vertex1;
     private Vertex vertex2;
     private Color color = Color.BLACK;
+    private Edge BROTHA;
 
     private int rib;
     public Edge(Vertex vertex1, Vertex vertex2, int rib){
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
         this.rib = rib;
+        //this.BROTHA = new Edge(vertex2,vertex1,rib);
+        //setBROTHA();
     }
 
     public void setVertex1(Vertex vertex1) {
@@ -41,6 +44,23 @@ public class Edge implements Comparable<Edge>{
     public int compareTo(Edge o) {
         return this.getRib() - o.getRib();
     }
+
+    public Edge getBROTHA() {
+        setBROTHA(vertex1,vertex2,rib);
+        return BROTHA;
+    }
+
+    public void setBROTHA(Vertex vertex1, Vertex vertex2, int rib) {
+        this.BROTHA = new Edge(vertex2,vertex1,rib);
+        BROTHA.setBROTHA(this);
+    }
+    public void setBROTHA(Edge edge) {
+        this.BROTHA = edge;
+        //BROTHA.setBROTHA();
+    }
+    /*public void setForBROTHA() {
+        this.BROTHA.setBROTHA();
+    }*/
 
     public void setColor(Color color) {
         this.color = color;

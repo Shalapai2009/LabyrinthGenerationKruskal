@@ -14,7 +14,7 @@ public class Main {
         int y = 3;
         Graph graph = new Graph(x,y);
         graph.doKruskal();
-        //Kruskal kruskal = new Kruskal(graph);
+        //FreackingUselles.Kruskal kruskal = new FreackingUselles.Kruskal(graph);
         System.out.println("aboba");
 
     }
