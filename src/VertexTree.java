@@ -1,15 +1,13 @@
-package FreackingUselles;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class VertexTree {
     /*private Vertex vertex;
     private int size = 0;
-    private List<FreackingUselles.VertexTree> vertexChildList = new ArrayList<>();
-    private FreackingUselles.VertexTree vertexParent;
+    private List<VertexTree> vertexChildList = new ArrayList<>();
+    private VertexTree vertexParent;
 
-    public FreackingUselles.VertexTree(Vertex vertex) {
+    public VertexTree(Vertex vertex) {
         this.vertex = vertex;
     }
 
@@ -25,32 +23,32 @@ public class VertexTree {
         this.size = size;
     }
 
-    public void addChildList(FreackingUselles.VertexTree vertexChild) {
+    public void addChildList(VertexTree vertexChild) {
         vertexChildList.add(vertexChild);
         vertexChild.setParent(this);
         //size = vertexChild.getSize()+1;
         updateSize(vertexChild);
     }
 
-    public List<FreackingUselles.VertexTree> getVertexChildList() {
+    public List<VertexTree> getVertexChildList() {
         return vertexChildList;
     }
-    public void setParent(FreackingUselles.VertexTree vertexParent) {
+    public void setParent(VertexTree vertexParent) {
         this.vertexParent = vertexParent;
     }
 
-    public FreackingUselles.VertexTree getVertexParent() {
+    public VertexTree getVertexParent() {
         return vertexParent;
     }
-    public FreackingUselles.VertexTree getFinal(){
-        FreackingUselles.VertexTree mineVertex = this;
+    public VertexTree getFinal(){
+        VertexTree mineVertex = this;
         while (mineVertex.getVertexParent() != null){
             mineVertex = mineVertex.getVertexParent();
         }
      return mineVertex;
     }
-    public void updateSize(FreackingUselles.VertexTree vertexChild){
-        FreackingUselles.VertexTree mineVertex = vertexChild;
+    public void updateSize(VertexTree vertexChild){
+        VertexTree mineVertex = vertexChild;
         while (mineVertex.getVertexParent() != null){
             int currentSize = mineVertex.getSize();
             mineVertex = mineVertex.getVertexParent();

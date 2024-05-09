@@ -5,6 +5,7 @@ public class Vertex {
 
     private int x;
     private int y;
+    private Type type = Type.Empty;
     private ArrayList<Edge> listEdge = new ArrayList<>();
     //private boolean isolated = true;
     public Vertex(int x,int y){
@@ -54,7 +55,7 @@ public class Vertex {
     private List<Vertex> vertexChildList = new ArrayList<>();
     private Vertex vertexParent = this;
 
-   /* public FreackingUselles.VertexTree(Vertex vertex) {
+   /* public VertexTree(Vertex vertex) {
         this.vertex = vertex;
     }*/
 
@@ -73,7 +74,7 @@ public class Vertex {
     public void addChildList(Vertex vertexChild) {
         vertexChildList.add(vertexChild);
         vertexChild.setParent(this);
-        size = vertexChild.getSize()+1;
+        //size = vertexChild.getSize()+1;
         updateSize(vertexChild);
     }
     //public void Union(Vertex v)
@@ -104,6 +105,15 @@ public class Vertex {
             if (mineVertex.getSize() <= currentSize){
                 mineVertex.setSize(currentSize+1);}
         }
+    }
+    public void makeEmpty(){
+        this.type = Type.Empty;
+    }
+    public void makeFull(){
+        this.type = Type.Full;
+    }
+    public static enum Type {
+        Empty,Full;
     }
 
 }

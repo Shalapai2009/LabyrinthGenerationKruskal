@@ -56,7 +56,7 @@ public class Graph {
 
                             Edge mineEdge = new Edge(currentVertex, mineVertex, RandomRib);
                             currentVertex.addEdge(mineEdge);
-                            //mineEdge.setBROTHA();
+                            mineEdge.setBROTHA();
                             mineVertex.addEdge(mineEdge.getBROTHA());
                             //mineVertex.addEdge(new Edge(mineVertex, currentVertex, RandomRib));
                             listOfEdges.add(mineEdge);
@@ -71,12 +71,12 @@ public class Graph {
         Collections.sort(listOfEdges);
         SpanningTree spanningTree = new SpanningTree(this);
         spanningTree.createDaFuckingTrulyGoddessSpanningTree();
-        for (Edge list: listOfEdges) {
+        /*for (Edge list: listOfEdges) {
            if  (spanningTree.getListOfTrue().contains(list)){
                list.makeRed();
                list.getBROTHA().makeRed();
            }
-        }
+        }*/
         System.out.println("whomp whomp");
     }
 

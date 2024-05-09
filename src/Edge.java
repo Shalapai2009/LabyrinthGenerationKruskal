@@ -46,7 +46,7 @@ public class Edge implements Comparable<Edge>{
     }
 
     public Edge getBROTHA() {
-        setBROTHA(vertex1,vertex2,rib);
+        //setBROTHA(vertex1,vertex2,rib);
         return BROTHA;
     }
 
@@ -58,6 +58,11 @@ public class Edge implements Comparable<Edge>{
         this.BROTHA = edge;
         //BROTHA.setBROTHA();
     }
+    public void setBROTHA() {
+        this.BROTHA = new Edge(vertex2,vertex1,rib);
+        BROTHA.setBROTHA(this);
+    }
+
     /*public void setForBROTHA() {
         this.BROTHA.setBROTHA();
     }*/
