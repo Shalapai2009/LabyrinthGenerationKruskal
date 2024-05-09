@@ -19,16 +19,16 @@ public class Vertex {
         listEdge.add(new Edge(vertex1, vertex2,rib));
     }
 
-    /*public void unIsolation() {
-        isolated = false;
-    }
-
-    public boolean isIsolated() {
-        return isolated;
-    }*/
-
-    public ArrayList<Edge> getEdge(){
+    public ArrayList<Edge> getListEdge(){
         return listEdge;
+    }
+    public Edge findInListEdgeByVertex2(Vertex vertex2){
+        for (Edge edge: listEdge) {
+            if (edge.getVertex2() == vertex2){
+                return edge;
+            }
+        }
+        return null;
     }
     public boolean isIWasHere (Vertex vertex){
         for (Edge i : listEdge){
@@ -38,15 +38,29 @@ public class Vertex {
         }
         return false;
     }
-    public void printXY(){
-        System.out.println(x+" "+y);
-    }
     public Boolean getBooleanDefiniteEdge(Edge edge){
         return listEdge.contains(edge);
     }
     public Edge removeEdge(int x){
         return listEdge.remove(x);
     }
+    public String getStringCoordinates(){
+        return Integer.toString(x)+";"+Integer.toString(y);
+    }
+    // Отдел типов
+    public Type getType(){
+        return type;
+    }
+    public void makeEmpty(){
+        this.type = Type.Empty;
+    }
+    public void makeFull(){
+        this.type = Type.Full;
+    }
+    public static enum Type {
+        Empty,Full;
+    }
+
     // Здесь отступает жизнь
     // Зажатая в тески
     // Полуденной жары
@@ -55,9 +69,6 @@ public class Vertex {
     private List<Vertex> vertexChildList = new ArrayList<>();
     private Vertex vertexParent = this;
 
-   /* public VertexTree(Vertex vertex) {
-        this.vertex = vertex;
-    }*/
 
     public Vertex getVertex() {
         return this;
@@ -74,10 +85,8 @@ public class Vertex {
     public void addChildList(Vertex vertexChild) {
         vertexChildList.add(vertexChild);
         vertexChild.setParent(this);
-        //size = vertexChild.getSize()+1;
-        updateSize(vertexChild);
+       // updateSize(vertexChild);
     }
-    //public void Union(Vertex v)
 
     public List<Vertex> getVertexChildList() {
         return vertexChildList;
@@ -101,19 +110,10 @@ public class Vertex {
         while (mineVertex.getParent() != mineVertex){
             int currentSize = mineVertex.getSize();
             mineVertex = mineVertex.getParent();
-            // ОПАСНООООООООООООООООООООООООООООО
             if (mineVertex.getSize() <= currentSize){
                 mineVertex.setSize(currentSize+1);}
         }
     }
-    public void makeEmpty(){
-        this.type = Type.Empty;
-    }
-    public void makeFull(){
-        this.type = Type.Full;
-    }
-    public static enum Type {
-        Empty,Full;
-    }
+
 
 }

@@ -14,8 +14,8 @@ public class SpanningTree {
         for (Edge edge: listOfEdge) {
             if (edge.getVertex2().getFinal() != edge.getVertex1().getFinal()){
                 edge.getVertex1().addChildList(edge.getVertex2().getFinal());
-                edge.makeRed();
-                edge.getBROTHA().makeRed();
+                edge.makeWay();
+                edge.getBROTHA().makeWay();
                 listOfTrue.add(edge);
 
             }

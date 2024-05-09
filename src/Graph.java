@@ -9,6 +9,7 @@ public class Graph {
         vertexMatrix = new Vertex[x][y];
         createField();
         giveVertexEdges();
+       // printGraph();
 
     }
     public Vertex getVertex(int x,int y){
@@ -53,12 +54,10 @@ public class Graph {
                         Vertex mineVertex = getVertex(currentVertexX+i,currentVertexY+j);
                         if (mineVertex != null && (!currentVertex.isIWasHere(mineVertex))){
                             int RandomRib = (int) (Math.random() * (10));
-
                             Edge mineEdge = new Edge(currentVertex, mineVertex, RandomRib);
                             currentVertex.addEdge(mineEdge);
                             mineEdge.setBROTHA();
                             mineVertex.addEdge(mineEdge.getBROTHA());
-                            //mineVertex.addEdge(new Edge(mineVertex, currentVertex, RandomRib));
                             listOfEdges.add(mineEdge);
                             deque.add(mineVertex);
                             }
@@ -66,6 +65,7 @@ public class Graph {
                 }
             }
         }
+
     }
     public void doKruskal(){
         Collections.sort(listOfEdges);
@@ -83,11 +83,6 @@ public class Graph {
     public List<Edge> getListOfEdges() {
         return listOfEdges;
     }
-    public void generateListOfVertex(){
-        for (Vertex[] matrix : vertexMatrix) {
-            Collections.addAll(listOfVertex, matrix);
-        }
-    }
     public List<Vertex> getListOfVertex() {
         return listOfVertex;
     }
@@ -98,5 +93,45 @@ public class Graph {
 
     public Vertex[][] getVertexMatrix() {
         return vertexMatrix;
+    }
+    public void printGraph(){
+        int k =0;
+        for (int i = 0; i < vertexMatrix[0].length; i++) {
+            System.out.print("______");
+        }
+        System.out.println();
+        for (int i = 0; i < vertexMatrix.length; i++) {
+            for (int j = 0; j < vertexMatrix[i].length; j++) {
+                if (j == vertexMatrix[i].length-1 ){
+                    if (i != vertexMatrix[i].length-1) {
+                        if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i + 1][j]).getType() == Edge.Type.WALL) {
+                            System.out.print("_" + vertexMatrix[i][j].getStringCoordinates() + "_" + "|");
+                            System.out.println();
+                        }
+                        else {
+                            System.out.print( vertexMatrix[i][j].getStringCoordinates() + "|");
+                            System.out.println();
+                        }
+                    } else {
+                        System.out.print(vertexMatrix[i][j].getStringCoordinates()+"|");
+                    System.out.println();
+                    }
+
+                } else {
+                    if (j == 0) {
+                        System.out.print("|");
+                    }
+
+                    System.out.print(vertexMatrix[i][j].getStringCoordinates());
+                    if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i][j + 1]).getType() == Edge.Type.WALL) {
+                        System.out.print(" | ");
+                    } else System.out.print("   ");
+                }
+            }
+        }
+        for (int i = 0; i < vertexMatrix[0].length; i++) {
+            System.out.print("¯¯¯¯¯¯");
+        }
+
     }
 }

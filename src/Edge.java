@@ -3,7 +3,7 @@ import java.util.List;
 public class Edge implements Comparable<Edge>{
     private Vertex vertex1;
     private Vertex vertex2;
-    private Color color = Color.BLACK;
+    private Type type = Type.WALL;
     private Edge BROTHA;
 
     private int rib;
@@ -11,8 +11,6 @@ public class Edge implements Comparable<Edge>{
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
         this.rib = rib;
-        //this.BROTHA = new Edge(vertex2,vertex1,rib);
-        //setBROTHA();
     }
 
     public void setVertex1(Vertex vertex1) {
@@ -40,13 +38,14 @@ public class Edge implements Comparable<Edge>{
         return rib;
     }
 
+
     @Override
     public int compareTo(Edge o) {
         return this.getRib() - o.getRib();
     }
 
+    // отдел БРАТАНА
     public Edge getBROTHA() {
-        //setBROTHA(vertex1,vertex2,rib);
         return BROTHA;
     }
 
@@ -63,26 +62,23 @@ public class Edge implements Comparable<Edge>{
         BROTHA.setBROTHA(this);
     }
 
-    /*public void setForBROTHA() {
-        this.BROTHA.setBROTHA();
-    }*/
-
-    public void setColor(Color color) {
-        this.color = color;
+    // Отдел по типу ребер
+    public void setType(Type type) {
+        this.type = type;
     }
 
-    public Color getColor() {
-        return color;
+    public Type getType() {
+        return type;
     }
-    public void makeBlack(){
-        this.color = Color.BLACK;
+    public void makeWall(){
+        this.type = Type.WALL;
     }
-    public void makeRed(){
-        this.color = Color.RED;
+    public void makeWay(){
+        this.type = Type.WAY;
     }
 
-    public static enum Color{
-        BLACK,RED;
+    public static enum Type{
+        WALL, WAY;
     }
 
 
