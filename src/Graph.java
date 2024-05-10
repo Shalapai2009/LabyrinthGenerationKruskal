@@ -4,7 +4,7 @@ public class Graph {
     private Vertex[][] vertexMatrix;
     private List<Edge> listOfEdges = new ArrayList<>();
     private List<Vertex> listOfVertex = new ArrayList<>();
-   // private List<VertexTree> listOfVertexTree = new ArrayList<>();
+   // private List<FreackingUselles.VertexTree> listOfVertexTree = new ArrayList<>();
     public Graph(int x, int y){
         vertexMatrix = new Vertex[x][y];
         createField();
@@ -105,15 +105,17 @@ public class Graph {
                 if (j == vertexMatrix[i].length-1 ){
                     if (i != vertexMatrix[i].length-1) {
                         if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i + 1][j]).getType() == Edge.Type.WALL) {
-                            System.out.print("_" + vertexMatrix[i][j].getStringCoordinates() + "_" + "|");
+                            System.out.print("_" + "_"+ "_" + "|");
                             System.out.println();
                         }
                         else {
-                            System.out.print( vertexMatrix[i][j].getStringCoordinates() + "|");
+                            //System.out.print( vertexMatrix[i][j].getStringCoordinates() + "|");
+                            System.out.print( "   " + "|");
                             System.out.println();
                         }
                     } else {
-                        System.out.print(vertexMatrix[i][j].getStringCoordinates()+"|");
+                        //System.out.print(vertexMatrix[i][j].getStringCoordinates()+"|");
+                        System.out.print("   "+"|");
                     System.out.println();
                     }
 
@@ -121,8 +123,18 @@ public class Graph {
                     if (j == 0) {
                         System.out.print("|");
                     }
+                    if (i != vertexMatrix[i].length-1) {
+                        if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i + 1][j]).getType() == Edge.Type.WALL) {
+                            System.out.print("_" + "_"+ "_");
+                        }
+                        else {//System.out.print(vertexMatrix[i][j].getStringCoordinates());
+                            System.out.print("   ");
+                             }
+                    } else{
+                     //System.out.print(vertexMatrix[i][j].getStringCoordinates());
+                        System.out.print("   ");
+                    }
 
-                    System.out.print(vertexMatrix[i][j].getStringCoordinates());
                     if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i][j + 1]).getType() == Edge.Type.WALL) {
                         System.out.print(" | ");
                     } else System.out.print("   ");
@@ -133,5 +145,28 @@ public class Graph {
             System.out.print("¯¯¯¯¯¯");
         }
 
+    }
+    public void printGraphNormally(){
+        Object[][] pizdec = new Object[vertexMatrix.length+ vertexMatrix.length-1][vertexMatrix[0].length+vertexMatrix[0].length];
+        int k =0;
+        for (int i = 0; i < pizdec.length-1; i++) {
+            for (int j = 0; j < pizdec[i].length-1; j++) {
+                if (pizdec[i][j] == null){
+                    pizdec[i][j] = listOfVertex.get(k);
+                    if (listOfVertex.get(k).findInListEdgeByVertex2(listOfVertex.get(k+1)).getType() == Edge.Type.WALL) {
+                        pizdec[i][j+1] = "Wall";
+                    }
+                    else {pizdec[i][j+1] = "Road";}
+                    if (listOfVertex.get(k).findInListEdgeByVertex2(listOfVertex.get(k+1)).getType() == Edge.Type.WALL) {
+                        pizdec[i][j+1] = "Wall";
+                    }
+                    else {pizdec[i][j+1] = "Road";}
+                    if (listOfVertex.get(k).findInListEdgeByVertex2(listOfVertex.get(k+1)).getType() == Edge.Type.WALL) {
+                        pizdec[i][j+1] = "Wall";
+                    }
+                    else {pizdec[i][j+1] = "Road";}
+                }
+            }
+        }
     }
 }
