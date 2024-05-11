@@ -47,6 +47,7 @@ public class Vertex {
     public String getStringCoordinates(){
         return Integer.toString(x)+";"+Integer.toString(y);
     }
+
     // Отдел типов
     public Type getType(){
         return type;

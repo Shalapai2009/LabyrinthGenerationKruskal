@@ -52,14 +52,15 @@ public class TrueLabyrinth {
                     System.out.print("F"+" ");}
                     else {System.out.print(" "+" ");}
                     System.out.println();
-                } else
-                if (labyrinthMatrix[i][j].getType() == Vertex.Type.Full){
+                } else  {
+                    if (labyrinthMatrix[i][j].getType() == Vertex.Type.Full){
                     //System.out.print(labyrinthMatrix[i][j].getType()+" ");}
                     System.out.print("F"+" ");}
                 else {
                     //System.out.print(" "+labyrinthMatrix[i][j].getType()+" ");
                     System.out.print(" "+" ");
                 }
+            }
             }
         }
     }
