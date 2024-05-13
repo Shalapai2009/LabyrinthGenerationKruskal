@@ -32,25 +32,29 @@ public class TrueLabyrinth {
                 if (j !=vertexMatrix[i].length-1) {
                     if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i][j+1]).getType() == Edge.Type.WALL){
                         labyrinthMatrix[2*i+1][2*(j+1)].makeFull();
-                       if (i*2+1 == labyrinthMatrix.length-2){
-                           labyrinthMatrix[2*i][2*(j+1)].makeFull();
-                       } else {
-                        labyrinthMatrix[2*(i+1)][2*(j+1)].makeFull();
-                            }
+                           if (labyrinthMatrix[2*(i+1)][2*(j+1)].getType() == Vertex.Type.Empty) {
+                               labyrinthMatrix[2 * (i + 1)][2 * (j + 1)].makeFull();
+                           }
+                           else {
+                               labyrinthMatrix[2 * i][2 * (j + 1)].makeFull();
+                           }
+
                     } else {
-                labyrinthMatrix[2*i+1][2*(j+1)].makeEmpty();
+              //  labyrinthMatrix[2*i+1][2*(j+1)].makeEmpty();
             }
             }
                 if (i != vertexMatrix.length-1){
                     if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i+1][j]).getType() == Edge.Type.WALL){
                     labyrinthMatrix[2*(i+1)][2*j+1].makeFull();
-                    if (j*2+1 == labyrinthMatrix.length-2){
-                        labyrinthMatrix[2*(i+1)][2*j].makeFull();
-                    } else {
+                    if (labyrinthMatrix[2*(i+1)][2*(j+1)].getType() == Vertex.Type.Empty){
                     labyrinthMatrix[2*(i+1)][2*(j+1)].makeFull();
                     }
+                    else {
+                        labyrinthMatrix[2*(i+1)][2*j].makeFull();
+                    }
+
                 } else {
-                    labyrinthMatrix[2*(i+1)][2*j+1].makeEmpty();
+                  //  labyrinthMatrix[2*(i+1)][2*j+1].makeEmpty();
                 }
             }
         }}
