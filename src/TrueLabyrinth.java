@@ -16,7 +16,7 @@ public class TrueLabyrinth {
             }
         }
     }
-    private void fullLabyrinthMatrix(){
+    private void fullLabyrinthMatrix() {
         Vertex[][] vertexMatrix = graph.getVertexMatrix();
         for (int i = 0; i < labyrinthMatrix.length; i++) {
             for (int j = 0; j < labyrinthMatrix[i].length; j++) {
@@ -25,19 +25,30 @@ public class TrueLabyrinth {
                 }
             }
         }
+        //System.out.println(labyrinthMatrix.length-2);
         for (int i = 0; i < vertexMatrix.length; i++) {
             for (int j = 0; j < vertexMatrix[i].length; j++) {
-            labyrinthMatrix[2*i+1][2*j+1] = vertexMatrix[i][j];
-            if (j !=vertexMatrix[i].length-1){
-            if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i][j+1]).getType() == Edge.Type.WALL){
-                labyrinthMatrix[2*i+1][2*(j+1)].makeFull();
-            } else {
+                labyrinthMatrix[2*i+1][2*j+1] = vertexMatrix[i][j];
+                if (j !=vertexMatrix[i].length-1) {
+                    if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i][j+1]).getType() == Edge.Type.WALL){
+                        labyrinthMatrix[2*i+1][2*(j+1)].makeFull();
+                       if (i*2+1 == labyrinthMatrix.length-2){
+                           labyrinthMatrix[2*i][2*(j+1)].makeFull();
+                       } else {
+                        labyrinthMatrix[2*(i+1)][2*(j+1)].makeFull();
+                            }
+                    } else {
                 labyrinthMatrix[2*i+1][2*(j+1)].makeEmpty();
             }
-                }
+            }
                 if (i != vertexMatrix.length-1){
-                if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i+1][j]).getType() == Edge.Type.WALL){
+                    if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i+1][j]).getType() == Edge.Type.WALL){
                     labyrinthMatrix[2*(i+1)][2*j+1].makeFull();
+                    if (j*2+1 == labyrinthMatrix.length-2){
+                        labyrinthMatrix[2*(i+1)][2*j].makeFull();
+                    } else {
+                    labyrinthMatrix[2*(i+1)][2*(j+1)].makeFull();
+                    }
                 } else {
                     labyrinthMatrix[2*(i+1)][2*j+1].makeEmpty();
                 }
@@ -49,13 +60,13 @@ public class TrueLabyrinth {
             for (int j = 0; j < labyrinthMatrix[i].length; j++) {
                 if (j == labyrinthMatrix[i].length-1){
                     if (labyrinthMatrix[i][j].getType() == Vertex.Type.Full){
-                    System.out.print("F"+" ");}
+                    System.out.print("▀"+" ");}
                     else {System.out.print(" "+" ");}
                     System.out.println();
                 } else  {
                     if (labyrinthMatrix[i][j].getType() == Vertex.Type.Full){
                     //System.out.print(labyrinthMatrix[i][j].getType()+" ");}
-                    System.out.print("F"+" ");}
+                    System.out.print("▀"+" ");}
                 else {
                     //System.out.print(" "+labyrinthMatrix[i][j].getType()+" ");
                     System.out.print(" "+" ");
