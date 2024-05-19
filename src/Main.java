@@ -10,8 +10,8 @@ public class Main {
     [][][][][]
     */
     public static void main(String[] args) {
-        int x = 4;
-        int y = 4;
+        int x = 3;
+        int y = 3;
         Graph graph = new Graph(x,y);
         graph.doKruskal();
         graph.printGraph();

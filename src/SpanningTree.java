@@ -9,7 +9,7 @@ public class SpanningTree {
         this.graph = graph;
     }
 
-    public void createDaFuckingTrulyGoddessSpanningTree(){
+    public void createDaFuckingTrulyGoddessSpanningTree() {
         List<Edge> listOfEdge = graph.getListOfEdges();
         for (Edge edge: listOfEdge) {
             if (edge.getVertex2().getFinal() != edge.getVertex1().getFinal()) {

@@ -28,11 +28,11 @@ public class TrueLabyrinth {
         //System.out.println(labyrinthMatrix.length-2);
         for (int i = 0; i < vertexMatrix.length; i++) {
             for (int j = 0; j < vertexMatrix[i].length; j++) {
-                labyrinthMatrix[2*i+1][2*j+1] = vertexMatrix[i][j];
-                if (j !=vertexMatrix[i].length-1) {
-                    if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i][j+1]).getType() == Edge.Type.WALL) {
-                        labyrinthMatrix[2*i+1][2*(j+1)].makeFull();
-                        if (labyrinthMatrix[2*(i+1)][2*(j+1)].getType() == Vertex.Type.Empty) {
+                labyrinthMatrix[2 * i + 1][2 * j + 1] = vertexMatrix[i][j];
+                if (j != vertexMatrix[i].length-1) {
+                    if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i][j + 1]).getType() == Edge.Type.WALL) {
+                        labyrinthMatrix[2 * i + 1][2 * (j + 1)].makeFull();
+                        if (labyrinthMatrix[2 * (i + 1)][2 * (j + 1)].getType() == Vertex.Type.Empty) {
                                labyrinthMatrix[2 * (i + 1)][2 * (j + 1)].makeFull();
                         }
                         else {
@@ -45,12 +45,12 @@ public class TrueLabyrinth {
                 }
                 if (i != vertexMatrix.length-1) {
                     if (vertexMatrix[i][j].findInListEdgeByVertex2(vertexMatrix[i+1][j]).getType() == Edge.Type.WALL) {
-                        labyrinthMatrix[2*(i+1)][2*j+1].makeFull();
-                        if (labyrinthMatrix[2*(i+1)][2*(j+1)].getType() == Vertex.Type.Empty) {
-                            labyrinthMatrix[2*(i+1)][2*(j+1)].makeFull();
+                        labyrinthMatrix[2 * (i + 1)][2 * j + 1].makeFull();
+                        if (labyrinthMatrix[2 * (i + 1)][2 * (j + 1)].getType() == Vertex.Type.Empty) {
+                            labyrinthMatrix[2 * (i + 1)][2 * (j + 1)].makeFull();
                         }
                         else {
-                        labyrinthMatrix[2*(i+1)][2*j].makeFull();
+                        labyrinthMatrix[2 * (i + 1)][2 * j].makeFull();
                         }
 
                     } else {

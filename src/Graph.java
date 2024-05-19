@@ -44,15 +44,15 @@ public class Graph {
     public void giveVertexEdges() {
         Deque<Vertex> deque = new ArrayDeque<>();
         deque.add(vertexMatrix[0][0]);
-        while (deque.size()>0) {
+        while (deque.size() > 0) {
             Vertex currentVertex = deque.pop();
             int[] currentVertexCoordinates = getVertexCoordinates(currentVertex);
             int currentVertexX = currentVertexCoordinates[0];
             int currentVertexY = currentVertexCoordinates[1];
             for (int i = -1; i < 2; i++) {
                 for (int j = -1; j < 2; j++) {
-                    if ((i!=0 & j==0) | (i==0 & j!=0)) {
-                        Vertex mineVertex = getVertex(currentVertexX+i,currentVertexY+j);
+                    if ((i != 0 & j == 0) || (i == 0 & j != 0)) {
+                        Vertex mineVertex = getVertex(currentVertexX + i,currentVertexY + j);
                         if (mineVertex != null && (!currentVertex.isIWasHere(mineVertex))) {
                             int RandomRib = (int) (Math.random() * (10));
                             Edge mineEdge = new Edge(currentVertex, mineVertex, RandomRib);
@@ -72,6 +72,7 @@ public class Graph {
         Collections.sort(listOfEdges);
         SpanningTree spanningTree = new SpanningTree(this);
         spanningTree.createDaFuckingTrulyGoddessSpanningTree();
+        List<Edge> listOfTrue = spanningTree.getListOfTrue();
         /*for (Edge list: listOfEdges) {
            if  (spanningTree.getListOfTrue().contains(list)){
                list.makeRed();
