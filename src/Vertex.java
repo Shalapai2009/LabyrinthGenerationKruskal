@@ -24,7 +24,7 @@ public class Vertex {
     }
     public Edge findInListEdgeByVertex2(Vertex vertex2) {
         for (Edge edge: listEdge) {
-            if (edge.getVertex2() == vertex2) {
+            if (edge.getVertex2() == vertex2){
                 return edge;
             }
         }
@@ -99,21 +99,20 @@ public class Vertex {
     public Vertex getParent() {
         return vertexParent;
     }
-    public Vertex getFinal() {
+    public Vertex getFinal(){
         Vertex mineVertex = this;
-        while (mineVertex.getParent() != mineVertex) {
+        while (mineVertex.getParent() != mineVertex){
             mineVertex = mineVertex.getParent();
         }
         return mineVertex;
     }
-    public void updateSize(Vertex vertexChild) {
+    public void updateSize(Vertex vertexChild){
         Vertex mineVertex = vertexChild;
-        while (mineVertex.getParent() != mineVertex) {
+        while (mineVertex.getParent() != mineVertex){
             int currentSize = mineVertex.getSize();
             mineVertex = mineVertex.getParent();
-            if (mineVertex.getSize() <= currentSize) {
-                mineVertex.setSize(currentSize+1);
-            }
+            if (mineVertex.getSize() <= currentSize){
+                mineVertex.setSize(currentSize+1);}
         }
     }
 

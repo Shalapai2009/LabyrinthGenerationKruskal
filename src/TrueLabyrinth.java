@@ -76,10 +76,10 @@ public class TrueLabyrinth {
                     //System.out.print(labyrinthMatrix[i][j].getType()+" ");}
                     System.out.print("▀"+" ");
                     }
-                else {
+                    else {
                     //System.out.print(" "+labyrinthMatrix[i][j].getType()+" ");
                     System.out.print(" "+" ");
-                }
+                    }
                 }
             }
         }

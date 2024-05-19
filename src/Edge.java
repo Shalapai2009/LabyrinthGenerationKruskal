@@ -7,7 +7,7 @@ public class Edge implements Comparable<Edge>{
     private Edge BROTHA;
 
     private int rib;
-    public Edge(Vertex vertex1, Vertex vertex2, int rib) {
+    public Edge(Vertex vertex1, Vertex vertex2, int rib){
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
         this.rib = rib;
@@ -70,14 +70,14 @@ public class Edge implements Comparable<Edge>{
     public Type getType() {
         return type;
     }
-    public void makeWall() {
+    public void makeWall(){
         this.type = Type.WALL;
     }
-    public void makeWay() {
+    public void makeWay(){
         this.type = Type.WAY;
     }
 
-    public static enum Type {
+    public static enum Type{
         WALL, WAY;
     }
 
