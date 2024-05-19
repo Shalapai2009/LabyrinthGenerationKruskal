@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2be5b2c0-9eb0-477b-8363-1505720e9f88" name="Changes" comment="ama going change x and y">
+    <list default="true" id="2be5b2c0-9eb0-477b-8363-1505720e9f88" name="Changes" comment="we do a little trolling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TrueLabyrinth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrueLabyrinth.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1715637649297</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="we do a little trolling">
+      <created>1715642598748</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715642598748</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -172,7 +178,8 @@
     <MESSAGE value="asa" />
     <MESSAGE value="iamfuckinggenius" />
     <MESSAGE value="ama going change x and y" />
-    <option name="LAST_COMMIT_MESSAGE" value="ama going change x and y" />
+    <MESSAGE value="we do a little trolling" />
+    <option name="LAST_COMMIT_MESSAGE" value="we do a little trolling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -186,16 +193,6 @@
           <url>file://$PROJECT_DIR$/src/Graph.java</url>
           <line>11</line>
           <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/TrueLabyrinth.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/TrueLabyrinth.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

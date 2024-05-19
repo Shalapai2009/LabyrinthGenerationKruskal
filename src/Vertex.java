@@ -8,54 +8,54 @@ public class Vertex {
     private Type type = Type.Empty;
     private ArrayList<Edge> listEdge = new ArrayList<>();
     //private boolean isolated = true;
-    public Vertex(int x,int y){
+    public Vertex(int x,int y) {
         this.x = x;
         this.y = y;
     }
-    public void addEdge(Edge edge){
+    public void addEdge(Edge edge) {
         listEdge.add(edge);
     }
-    public void addEdge(Vertex vertex1, Vertex vertex2, int rib){
+    public void addEdge(Vertex vertex1, Vertex vertex2, int rib) {
         listEdge.add(new Edge(vertex1, vertex2,rib));
     }
 
-    public ArrayList<Edge> getListEdge(){
+    public ArrayList<Edge> getListEdge() {
         return listEdge;
     }
-    public Edge findInListEdgeByVertex2(Vertex vertex2){
+    public Edge findInListEdgeByVertex2(Vertex vertex2) {
         for (Edge edge: listEdge) {
-            if (edge.getVertex2() == vertex2){
+            if (edge.getVertex2() == vertex2) {
                 return edge;
             }
         }
         return null;
     }
-    public boolean isIWasHere (Vertex vertex){
+    public boolean isIWasHere (Vertex vertex) {
         for (Edge i : listEdge){
-            if (i.getVertex2().equals(vertex)){
+            if (i.getVertex2().equals(vertex)) {
                 return true;
             }
         }
         return false;
     }
-    public Boolean getBooleanDefiniteEdge(Edge edge){
+    public Boolean getBooleanDefiniteEdge(Edge edge) {
         return listEdge.contains(edge);
     }
-    public Edge removeEdge(int x){
+    public Edge removeEdge(int x) {
         return listEdge.remove(x);
     }
-    public String getStringCoordinates(){
+    public String getStringCoordinates() {
         return Integer.toString(x)+";"+Integer.toString(y);
     }
 
     // Отдел типов
-    public Type getType(){
+    public Type getType() {
         return type;
     }
-    public void makeEmpty(){
+    public void makeEmpty() {
         this.type = Type.Empty;
     }
-    public void makeFull(){
+    public void makeFull() {
         this.type = Type.Full;
     }
     public static enum Type {
@@ -99,20 +99,21 @@ public class Vertex {
     public Vertex getParent() {
         return vertexParent;
     }
-    public Vertex getFinal(){
+    public Vertex getFinal() {
         Vertex mineVertex = this;
-        while (mineVertex.getParent() != mineVertex){
+        while (mineVertex.getParent() != mineVertex) {
             mineVertex = mineVertex.getParent();
         }
         return mineVertex;
     }
-    public void updateSize(Vertex vertexChild){
+    public void updateSize(Vertex vertexChild) {
         Vertex mineVertex = vertexChild;
-        while (mineVertex.getParent() != mineVertex){
+        while (mineVertex.getParent() != mineVertex) {
             int currentSize = mineVertex.getSize();
             mineVertex = mineVertex.getParent();
-            if (mineVertex.getSize() <= currentSize){
-                mineVertex.setSize(currentSize+1);}
+            if (mineVertex.getSize() <= currentSize) {
+                mineVertex.setSize(currentSize+1);
+            }
         }
     }
 
